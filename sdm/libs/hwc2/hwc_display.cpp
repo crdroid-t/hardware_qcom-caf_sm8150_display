@@ -81,13 +81,13 @@ HWC2::Error HWCColorMode::DeInit() {
 
 uint32_t HWCColorMode::GetColorModeCount() {
   uint32_t count = UINT32(color_mode_map_.size());
-  DLOGI("Supported color mode count = %d", count);
+//  DLOGI("Supported color mode count = %d", count);
   return std::max(1U, count);
 }
 
 uint32_t HWCColorMode::GetRenderIntentCount(ColorMode mode) {
   uint32_t count = UINT32(color_mode_map_[mode].size());
-  DLOGI("mode: %d supported rendering intent count = %d", mode, count);
+//  DLOGI("mode: %d supported rendering intent count = %d", mode, count);
   return std::max(1U, count);
 }
 
@@ -96,7 +96,7 @@ HWC2::Error HWCColorMode::GetColorModes(uint32_t *out_num_modes, ColorMode *out_
   *out_num_modes = std::min(*out_num_modes, UINT32(color_mode_map_.size()));
   for (uint32_t i = 0; i < *out_num_modes; it++, i++) {
     out_modes[i] = it->first;
-    DLOGI("Color mode = %d is supported", out_modes[i]);
+  //  DLOGI("Color mode = %d is supported", out_modes[i]);
   }
   return HWC2::Error::None;
 }
@@ -2668,7 +2668,7 @@ HWC2::Error HWCDisplay::SubmitDisplayConfig(hwc2_config_t config) {
   }
 
   validated_ = false;
-  DLOGI("Active configuration changed to: %d", config);
+  //DLOGI("Active configuration changed to: %d", config);
 
   return HWC2::Error::None;
 }
